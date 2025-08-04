@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Main Window - Choose Role</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, lightgreen, green);
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: none;
+      padding: 40px;
+      border-radius: 10px;
+      /*box-shadow: 0 0 15px rgba(0,0,0,0.1);*/
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    .btn {
+      display: block;
+      width: 200px;
+      margin: 10px auto;
+      padding: 12px;
+      background-color: lightgreen;
+      color: green;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: green;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        width: 90%;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Select Your Login Role</h2>
+    <a href="admin-login.html?role=admin" class="btn">Login as Admin</a>
+    <a href="user.html?role=user" class="btn">Login as Student</a>
+  </div>
+</body>
+</html>

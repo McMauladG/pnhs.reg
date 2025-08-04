@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - DPRMS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 2rem;
+    }
+    .register-box {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #0077b6;
+    }
+    input {
+      width: 88%;
+      padding: 0.7rem;
+      margin: 0.6rem 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background: #0077b6;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .success {
+      color: green;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .error {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .link {
+      text-align: center;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-box">
+    <h2>Create Account</h2>
+    <input type="text" id="name" placeholder="Full Name" required />
+    <input type="text" id="email" placeholder="Email" required />
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="register()">Register</button>
+    <div id="message"></div>
+    <div class="link">
+      Already registered?<br><a 
+      style="text-decoration: none;" href="user.html">
+      Login here</a>
+    </div>
+  </div>
+
+  <script>
+    function register() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const msg = document.getElementById("message");
+
+      if (!name || !email || !username || !password) {
+        msg.textContent = "Please fill out all fields.";
+        msg.className = "error";
+        return;
+      }
+
+      // Save to localStorage
+      const userData = {
+        name,
+        email,
+        username,
+        password,
+        role: "User"
+      };
+      localStorage.setItem("userAccount", JSON.stringify(userData));
+
+      msg.innerHTML = `<span class="success">Registered successfully! <br><a href='user.html'></a></span>`;
+    }
+  </script>
+
+</body>
+</html>
